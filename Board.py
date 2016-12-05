@@ -33,6 +33,7 @@ class Board():
             self.grid[row][col] = symbol
 
     def setRand(self):
+        '''Places 'O' at random available location'''
         random.seed()
 
         while True:
@@ -42,4 +43,17 @@ class Board():
             if isValid(row,col):
                 setValue(row, col, "O")
                 return
-                
+    def isWon(self):
+        '''Determines whether game has been won'''
+        #check horizontal
+        for row in self.grid:
+            if row[0] == row[1] == row[2]:
+                return True
+        #check vertical
+        for i in range(3):
+            if self.grid[0][col] == self.grid[1][col] ==
+                                    self.grid[2][col]:
+               return True
+
+        if self.grid[0][0] == self.grid[1][1] == self.grid[2][2]:
+            return True
