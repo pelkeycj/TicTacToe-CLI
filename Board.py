@@ -4,10 +4,6 @@ class Board():
     def __init__(self):
         self.grid = [[" " for x in range(3)] for y in range(3)]
 
-    def reset(self):
-        '''Resets to board to blank grid'''
-        self.grid = [[" " for x in range(3)] for y in range(3)]
-
     def showBoard(self):
         '''Display board'''
         print(" 0  1  2")
@@ -122,3 +118,12 @@ class Board():
         if self.grid[2][0] is self.grid[1][1] is self.grid[0][2] \
             and self.grid[2][0] is not " ":
             return True
+
+
+    def isDraw(self):
+        '''Determine whether the game ends in a draw'''
+        for row in self.grid:
+            for col in row:
+                if col == " ":
+                    return False
+        return True

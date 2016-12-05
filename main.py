@@ -2,11 +2,10 @@ from Board import *
 import time
 
 def main():
-    board = Board()
     printInstructions()
 
     while True:
-        board.reset()
+        board = Board()
         playRound(board)
 
         choice = raw_input("\nPlay again? y/n\n")
@@ -40,6 +39,9 @@ def playRound(board):
         if board.isWon():
             print("\nYou Won!")
             return
+        elif board.isDraw():
+            print("\nDraw.")
+            return
 
         #Computer chooses position, check for win
         print("Computer's turn . . .")
@@ -48,6 +50,10 @@ def playRound(board):
         if board.isWon():
             board.showBoard()
             print("\nYou lost.")
+            return
+        elif board.isDraw():
+            board.showBoard()
+            print("\nDraw.")
             return
 
 
