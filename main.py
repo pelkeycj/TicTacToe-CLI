@@ -41,9 +41,9 @@ def playRound(board):
             print("\nYou Won!")
             return
 
-
+        #Computer chooses position, check for win
         print("Computer's turn . . .")
-        time.sleep(1)
+        time.sleep(.75)
         board.setRand()
         if board.isWon():
             showBoard()
