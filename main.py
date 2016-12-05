@@ -46,7 +46,7 @@ def playRound(board):
         time.sleep(.5)
         board.setAI()
         if board.isWon():
-            showBoard()
+            board.showBoard()
             print("\nYou lost.")
             return
 
