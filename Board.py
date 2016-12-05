@@ -44,6 +44,9 @@ class Board():
         # try to block a win
         elif self.setThird("X", "O"):
             return
+        #occupy center
+        elif self.isValid(1, 1):
+            self.setValue(1, 1, "O")
         # place random
         else:
             self.setRand()
