@@ -53,6 +53,7 @@ def playRound(board):
         board.showBoard()
         if board.isWon():
             print("\nYou lost.")
+            return
 
 if __name__ == "__main__":
     main()
