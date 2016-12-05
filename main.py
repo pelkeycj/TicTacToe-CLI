@@ -19,7 +19,7 @@ def printInstructions():
     print("Tic-Tac-Toe")
     print("___________")
     print("Choose coordinates (row,column) when prompted.")
-    print("     eg. 20 , 00, etc.")
+    print("     eg. 20 represents row 2, column 0.")
     print("Good Luck!\n\n")
 
 def playRound(board):
