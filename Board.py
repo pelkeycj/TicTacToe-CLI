@@ -35,22 +35,26 @@ class Board():
         self.grid[row][col] = symbol
 
 
-    def setAI(self):
+    def setAI(self, difficulty):
         '''Sets the AI position:
             win, block win, or random'''
-        # try to win
-        if self.setThird("O", "O"):
-            return
-        # try to block a win
-        elif self.setThird("X", "O"):
-            return
-        #occupy center
-        elif self.isValid(1, 1):
-            self.setValue(1, 1, "O")
-        # place random
-        else:
-            self.setRand()
-            return
+        if difficulty >= 2: #Normal mode
+            # try to win
+            if self.setThird("O", "O"):
+                return
+            # try to block a win
+            elif self.setThird("X", "O"):
+                return
+
+            if difficulty >= 3: #hard mode
+                # occupy center
+                if self.isValid(1, 1):
+                    self.setValue(1, 1, "O")
+                    return
+
+        if difficulty >= 1: #easy mode
+                self.setRand()
+                return
 
 
     def setThird(self, toFind, toInsert):

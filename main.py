@@ -6,7 +6,8 @@ def main():
 
     while True:
         board = Board()
-        playRound(board)
+        difficulty = getDifficulty()
+        playRound(board, difficulty)
 
         choice = raw_input("\nPlay again? y/n\n")
         if choice is not "y":
@@ -22,7 +23,15 @@ def printInstructions():
     print("     eg. 20 represents row 2, column 0.")
     print("Good Luck!\n\n")
 
-def playRound(board):
+def getDifficulty():
+    print("\nChoose difficulty: ")
+    print("1. Easy")
+    print("2. Normal")
+    print("3. Hard")
+
+    return int(raw_input())
+
+def playRound(board, difficulty):
     '''Play until win/lose'''
     while True:
         board.showBoard()
@@ -35,7 +44,6 @@ def playRound(board):
 
         #set board and check for win
         board.setValue(row, col, "X")
-        board.showBoard()
         if board.isWon():
             print("\nYou Won!")
             return
@@ -44,9 +52,7 @@ def playRound(board):
             return
 
         #Computer chooses position, check for win
-        print("Computer's turn . . .")
-        time.sleep(.5)
-        board.setAI()
+        board.setAI(difficulty)
         if board.isWon():
             board.showBoard()
             print("\nYou lost.")
