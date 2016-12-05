@@ -1,5 +1,4 @@
 from Board import *
-import random
 import time
 
 def main():
@@ -9,7 +8,7 @@ def main():
     playing = True
     while playing:
         board.reset()
-        playRound()
+        playRound(board)
 
         choice = input("\nPlay again? y/n")
         if choice is not "y":
@@ -18,26 +17,23 @@ def main():
 
 
 def printInstructions():
+    '''Print gameplay instructions to user'''
     print("Tic-Tac-Toe")
     print("___________")
     print("Choose coordinates (row,column) when prompted.")
     print("     eg. 20 , 00, etc.")
-    print("Good Luck!")
-
-def choosePosition():
-    coords = input("Place 'X' at: ")
-    row = int(coords[0])
-    col = int(coords[1])
-    return (row, col)
+    print("Good Luck!\n\n")
 
 def playRound(board):
+    '''Play until win/lose'''
     while True:
         board.showBoard()
-        row, col = -1
+        row = 9
+        col = 9
 
         #get user choice
-        while !board.isValid(row, col):
-            row,col = choosePosition()
+        while not board.isValid(row, col):
+            row, col = choosePosition()
 
         #set board and check for win
         board.setValue(row, col, "X")
@@ -48,12 +44,20 @@ def playRound(board):
 
 
         print("Computer's turn . . .")
-        time.sleep(2)
+        time.sleep(1)
         board.setRand()
-        board.showBoard()
         if board.isWon():
+            showBoard()
             print("\nYou lost.")
             return
+
+
+def choosePosition():
+    '''get user input for coords'''
+    coords = raw_input("Place 'X' at: ")
+    row = int(coords[0])
+    col = int(coords[1])
+    return (row, col)
 
 if __name__ == "__main__":
     main()
