@@ -43,17 +43,21 @@ class Board():
             if isValid(row,col):
                 setValue(row, col, "O")
                 return
+
     def isWon(self):
         '''Determines whether game has been won'''
         #check horizontal
         for row in self.grid:
-            if row[0] == row[1] == row[2]:
+            if row[0] is row[1] is row[2] and row[0] is not " ":
                 return True
         #check vertical
         for i in range(3):
-            if self.grid[0][col] == self.grid[1][col] ==
-                                    self.grid[2][col]:
+            if self.grid[0][col] is
+              self.grid[1][col] is
+              self.grid[2][col]
+              and self.grid[0][col] is not " ":
                return True
 
-        if self.grid[0][0] == self.grid[1][1] == self.grid[2][2]:
+        if self.grid[0][0] is self.grid[1][1] is self.grid[2][2]
+            and self.grid[0][0] is not " ":
             return True
