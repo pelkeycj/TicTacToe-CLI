@@ -1,5 +1,5 @@
 TicTacToe-CLI
 ===============
-a command line game of TicTacToe written in python
+A command line game of TicTacToe written in python.
 
-Computer chooses positions at random
+Play against the computer, which chooses positions at random.
