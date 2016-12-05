@@ -2,6 +2,10 @@ class Board():
     def __init__(self):
         self.grid = [[" " for x in range(3)] for y in range(3)]
 
+    def reset(self):
+        '''Resets to board to blank grid'''
+        self.grid = [["" for x in range(3)] for y in range(3)]
+
     def showBoard(self):
         '''Display board'''
         print(" 0  1  2")
