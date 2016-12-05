@@ -5,15 +5,14 @@ def main():
     board = Board()
     printInstructions()
 
-    playing = True
-    while playing:
+    while True:
         board.reset()
         playRound(board)
 
-        choice = input("\nPlay again? y/n")
+        choice = raw_input("\nPlay again? y/n\n")
         if choice is not "y":
             print("Thanks for playing!")
-            playing = False
+            return
 
 
 def printInstructions():
