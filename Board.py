@@ -64,10 +64,11 @@ class Board():
               self.grid[0][col] is not " ":
                return True
 
+        #check top-left -> bottom-right diagonal
         if self.grid[0][0] is self.grid[1][1] is self.grid[2][2] \
             and self.grid[0][0] is not " ":
             return True
-
+        #check bottom-left -> top-right diagonal
         if self.grid[2][0] is self.grid[1][1] is self.grid[0][2] \
             and self.grid[2][0] is not " ":
             return True
