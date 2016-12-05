@@ -43,8 +43,8 @@ def playRound(board):
 
         #Computer chooses position, check for win
         print("Computer's turn . . .")
-        time.sleep(.75)
-        board.setRand()
+        time.sleep(.5)
+        board.setAI()
         if board.isWon():
             showBoard()
             print("\nYou lost.")

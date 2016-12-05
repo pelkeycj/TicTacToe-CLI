@@ -38,6 +38,56 @@ class Board():
         '''Sets symbol if valid coordinates'''
         self.grid[row][col] = symbol
 
+
+    def setAI(self):
+        '''Sets the AI position:
+            win, block win, or random'''
+        # try to win
+        if self.setThird("O", "O"):
+            return
+        # try to block a win
+        elif self.setThird("X", "O"):
+            return
+        # place random
+        else:
+            self.setRand()
+            return
+
+
+    def setThird(self, toFind, toInsert):
+        '''Attempts to insert toInsert at position to fill a row/col/diag
+            where toFind occupies two positions.
+            True if successful'''
+        for i in range(3):
+            #variables to search adjacent
+            x = (i + 1) % 3
+            y = (i + 2) % 3
+
+            #top-left -> bottom-right diagonal
+            if self.grid[i][i] is " " and self.grid[x][x] is self.grid[y][y] is toFind:
+                self.setValue(i, i, toInsert)
+                return True
+            #bottom-left -> top-right diagonal
+            elif self.grid[i][2 - i] is " " and self.grid[x][2 - x] is self.grid[y][2 - y] is toFind:
+                self.setValue(i, 2 - i, toInsert)
+                return True
+
+            for j in range(3):
+                #horizontal
+                if self.grid[j][i] is " " and self.grid[j][x] is self.grid[j][y] is toFind:
+                    self.setValue(j, i, toInsert)
+                    return True
+                #vertical
+                elif self.grid[i][j] is " " and self.grid[x][j] is self.grid[y][j] is toFind:
+                    self.setValue(i, j, toInsert)
+                    return True
+
+        return False
+
+
+
+
+
     def setRand(self):
         '''Places 'O' at random available location'''
         random.seed()
