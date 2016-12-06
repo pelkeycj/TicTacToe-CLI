@@ -30,6 +30,7 @@ class Board():
         else:
             return True
 
+
     def setValue(self, row, col, symbol):
         '''Sets symbol if valid coordinates'''
         self.grid[row][col] = symbol
@@ -88,9 +89,6 @@ class Board():
         return False
 
 
-
-
-
     def setRand(self):
         '''Places 'O' at random available location'''
         random.seed()
@@ -102,6 +100,7 @@ class Board():
             if self.isValid(row,col):
                 self.setValue(row, col, "O")
                 return
+
 
     def isWon(self):
         '''Determines whether game has been won'''

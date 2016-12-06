@@ -15,22 +15,6 @@ def main():
             return
 
 
-def printInstructions():
-    '''Print gameplay instructions to user'''
-    print("Tic-Tac-Toe")
-    print("___________")
-    print("Choose coordinates (row,column) when prompted.")
-    print("     eg. 20 represents row 2, column 0.")
-    print("Good Luck!\n\n")
-
-def getDifficulty():
-    print("\nChoose difficulty: ")
-    print("1. Easy")
-    print("2. Normal")
-    print("3. Hard")
-
-    return int(raw_input())
-
 def playRound(board, difficulty):
     '''Play until win/lose'''
     while True:
@@ -61,6 +45,23 @@ def playRound(board, difficulty):
             board.showBoard()
             print("\nDraw.")
             return
+
+def printInstructions():
+    '''Print gameplay instructions to user'''
+    print("Tic-Tac-Toe")
+    print("___________")
+    print("Choose coordinates (row,column) when prompted.")
+    print("     eg. 20 represents row 2, column 0.")
+    print("Good Luck!\n\n")
+
+
+def getDifficulty():
+    print("\nChoose difficulty: ")
+    print("1. Easy")
+    print("2. Normal")
+    print("3. Hard")
+
+    return int(raw_input())
 
 
 def choosePosition():
